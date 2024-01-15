@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Special Invitation</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      overflow: hidden; /* Prevent scrolling */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: linear-gradient(to right, #b4e2ff, #c3f1fd);
+    }
+
+    #invitation-container {
+      text-align: center;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      background: linear-gradient(to right, #f8f9fa, #ffffff);
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    #question {
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: #007bff;
+    }
+
+    #gif-container {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+
+    #gif {
+      width: 100%;
+      max-width: 600px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    }
+
+    #buttons-container {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .button {
+      font-size: 18px;
+      padding: 15px 30px;
+      cursor: pointer;
+      border: none;
+      border-radius: 8px;
+      transition: background-color 0.3s ease-in-out;
+      outline: none;
+    }
+
+    #yes-button {
+      background: linear-gradient(to right, #4CAF50, #388e3c);
+      color: #fff;
+      border: 2px solid #388e3c;
+    }
+
+    #no-button {
+      background: linear-gradient(to right, #ff4d4d, #d93025);
+      color: #fff;
+      border: 2px solid #d93025;
+    }
+
+    .button:hover {
+      filter: brightness(1.2);
+    }
+
+    #modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+    }
+
+    #modal-content {
+      background: linear-gradient(to right, #ffffff, #f8f9fa);
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      animation: zoomIn 0.5s ease-in-out;
+    }
+
+    #modal-message {
+      font-size: 20px;
+      margin-bottom: 20px;
+      color: #4CAF50;
+    }
+
+    #close-button {
+      background: linear-gradient(to right, #333, #555);
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s ease-in-out;
+    }
+
+    #close-button:hover {
+      background: linear-gradient(to right, #555, #777);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes zoomIn {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="invitation-container">
+    <div id="question">Will you show me your BUBU?</div>
+
+    <div id="gif-container">
+      <div class="tenor-gif-embed" data-postid="16175439" data-share-method="host" data-aspect-ratio="1.10345" data-width="100%"><a href="https://tenor.com/view/bunny-rabbit-question-confused-adorable-gif-16175439">Bunny Rabbit Sticker</a>from <a href="https://tenor.com/search/bunny-stickers">Bunny Stickers</a></div>
+    </div>
+
+    <div id="buttons-container">
+      <button id="yes-button" class="button" onclick="openModal()">Yes</button>
+      <button id="no-button" class="button" onclick="moveButton()">No</button>
+    </div>
+  </div>
+
+  <div id="modal">
+    <div id="modal-content">
+      <p id="modal-message"></p>
+      <button id="close-button" onclick="closeModal()">Close</button>
+    </div>
+  </div>
+
+  <script>
+    function moveButton() {
+      const button = document.getElementById('no-button');
+      const buttonRect = button.getBoundingClientRect();
+      const offsetX = Math.max(0, Math.min(window.innerWidth - buttonRect.width, Math.random() * window.innerWidth - buttonRect.width));
+      const offsetY = Math.max(0, Math.min(window.innerHeight - buttonRect.height, Math.random() * window.innerHeight - buttonRect.height));
+
+      button.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+    }
+
+    function openModal() {
+      const modal = document.getElementById('modal');
+      const modalMessage = document.getElementById('modal-message');
+      modalMessage.textContent = 'GOOD :) Video call me as soon as possible.';
+      modal.style.display = 'flex';
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('modal');
+      modal.style.display = 'none';
+    }
+  </script>
+  <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+</body>
+</html>
